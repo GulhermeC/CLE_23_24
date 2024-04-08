@@ -52,12 +52,17 @@ void CAPS(int *a, int *b) {
  * @param count Number of elements to include in the merge.
  * @param dir Direction of sorting: 1 for ascending, 0 for descending.
  */
-void bitonicMergeIterative(int *val, int low, int count, int dir) {
-    for (int k = 2; k <= count; k = 2 * k) {
-        for (int i = low; i < low + count; i += k) {
+void bitonicMergeIterative(int *val, int low, int count, int dir) 
+{
+    for (int k = 2; k <= count; k = 2 * k) 
+    {
+        for (int i = low; i < low + count; i += k) 
+        {
             int mid = k / 2;
-            for (int j = i; j < i + mid; j++) {
-                if (dir == (val[j] > val[j + mid])) {
+            for (int j = i; j < i + mid; j++) 
+            {
+                if (dir == (val[j] > val[j + mid])) 
+                {
                     int temp = val[j];
                     val[j] = val[j + mid];
                     val[j + mid] = temp;
@@ -73,9 +78,12 @@ void bitonicMergeIterative(int *val, int low, int count, int dir) {
  * @param val Pointer to the array of integers to sort.
  * @param N The number of elements in the array.
  */
-void bitonicSortIterative(int *val, int N) {
-    for (int k = 2; k <= N; k = 2 * k) {
-        for (int i = 0; i < N; i += k) {
+void bitonicSortIterative(int *val, int N) 
+{
+    for (int k = 2; k <= N; k = 2 * k) 
+    {
+        for (int i = 0; i < N; i += k) 
+        {
             int dir = ((i / (k / 2)) % 2) == 0;
             bitonicMergeIterative(val, i, k, dir);
         }
